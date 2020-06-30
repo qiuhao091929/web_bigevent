@@ -15,7 +15,7 @@ const nickname = joi.string().required()
 const email = joi.string().email().required()
 
 //定义user_pic的验证规则
-const avatar=joi.string().dataUri().required()
+const avatar = joi.string().dataUri().required()
 
 //注册和登录表单的验证规则对象
 module.exports.reg_login_schema = {
@@ -29,6 +29,7 @@ module.exports.reg_login_schema = {
 module.exports.update_userinfo_schema = {
     body: {
         id,
+        username,
         nickname,
         email
     }
@@ -38,7 +39,7 @@ module.exports.update_userinfo_schema = {
 module.exports.update_password_schema = {
     body: {
         oldPwd: password,
-        newPwd:joi.not(joi.ref('oldPwd')).concat(password)
+        newPwd: joi.not(joi.ref('oldPwd')).concat(password)
     }
 }
 

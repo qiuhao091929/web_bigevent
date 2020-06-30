@@ -11,7 +11,7 @@ module.exports.getUserInfo = (req, res) => {
     // res.send('ok')
 
     //定义sql语句
-    const sql = `select id,username,nickname,email from ev_users where id=?`
+    const sql = `select id,username,nickname,email,user_pic from ev_users where id=?`
     //执行sql语句
     db.query(sql, req.user.id, (err, results) => {
         //执行语句失败
@@ -35,7 +35,7 @@ module.exports.getUserInfo = (req, res) => {
 //更新用户信息的处理函数
 module.exports.updateUserInfo = (req, res) => {
     // res.send('ok')
-
+    console.log(req.body)
     //定义sql语句
     const sql = `update ev_users set ? where id=?`
     //执行sql语句

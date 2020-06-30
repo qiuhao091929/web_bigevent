@@ -29,6 +29,7 @@ function getUserInfo() {
             }
             //调用renderAvatar渲染用户的头像
             renderAvatar(res.data)
+            console.log(res.data)
         },
         //不论成功还是失败，最终都会调用 complete 回调函数
         // complete: function (res) {
@@ -53,8 +54,9 @@ function renderAvatar(user) {
     //3.按需渲染用户的头像
     if (user.user_pic !== null) {
         //3.1渲染图片头像
-        $('.layui-nav-img').attr('src', user_pic).show()
+        $('.layui-nav-img').attr('src', user.user_pic).show()
         $('.text-avatar').hide()
+        console.log(user.user_pic)
     } else {
         //3.2渲染文本头像
         $('.layui-nav-img').hide()
